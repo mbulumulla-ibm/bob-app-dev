@@ -20,6 +20,44 @@ This healthcare application demonstrates:
 - **Application Type:** Patient Insurance Lookup System
 - **Data Type:** Protected Health Information (PHI)
 
+### Prerequisites
+- Java 8 JDK
+- Maven 3.6+
+
+## Recommended Prompts for Demo 
+1. Build the application and deploy it. Please provide the url 
+    a. Java Migration Path 
+    b. Analyze project
+    c. Java upgrades - java 8 to 25 
+    d. Upgrade Recipes Java 1.8 to 25
+    e. Perform agentic upgrade
+    f. Unit testing (experimental) (turn off unit testing but show UNITTEST.md to see what can be generated) 
+
+2. Identify all security vulnerabilities. Please remediate the CVEs.
+3. Stop the liberty servers, current application, and java processes. Please rebuild and redeploy the application ensuring there is not a version mismatch error for the servlet in server.xml, pom.xml, and web.xml or port conflicts
+
+
+**Clean up**: Now stop the liberty processes, and stop the application. Ensure there is nothing running on the port.
+
+
+### Build and Run 
+*(Bob will perform these tasks if you ask Bob to "Build the application and deploy it")*
+
+1. **Build the application:**
+   ```bash
+   mvn clean package
+   ```
+
+2. **Run on Open Liberty:**
+   ```bash
+   mvn liberty:dev
+   ```
+
+3. **Access the application:**
+   - Open browser: http://localhost:9080
+   - The application will display the healthcare insurance portal
+
+
 ## ⚠️ Known Vulnerabilities
 
 ### 1. SQL Injection - PHI Data Breach Risk
@@ -58,27 +96,6 @@ This healthcare application demonstrates:
 - **Legal Action:** Class action lawsuits from affected patients
 - **Ransomware:** Healthcare systems are prime targets
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Java 8 JDK
-- Maven 3.6+
-
-### Build and Run
-
-1. **Build the application:**
-   ```bash
-   mvn clean package
-   ```
-
-2. **Run on Open Liberty:**
-   ```bash
-   mvn liberty:dev
-   ```
-
-3. **Access the application:**
-   - Open browser: http://localhost:9080
-   - The application will display the healthcare insurance portal
 
 ### Testing the Vulnerabilities
 
